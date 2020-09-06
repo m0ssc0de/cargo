@@ -196,6 +196,7 @@ impl<'cfg> RegistryData for RemoteRegistry<'cfg> {
             Ok(())
         })?;
         trace!("config loaded");
+        self.config.acquire_package_cache_lock()?;
         Ok(config)
     }
 
